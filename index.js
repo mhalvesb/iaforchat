@@ -25,7 +25,7 @@ app.get("/", (req, res) =>{
     res.send("ok");
 });
 
-app.post("/api", async (req, res, next) =>{
+app.post("/", async (req, res, next) =>{
         
         const prompt = req.body.message;
         const result = await model.generateContent(prompt);
