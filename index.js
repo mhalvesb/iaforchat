@@ -5,7 +5,12 @@ const bodyParser = require("body-parser");
 
 
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://chatbot-nine-self.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
 
 
 app.use(bodyParser.urlencoded({extended: true}));
