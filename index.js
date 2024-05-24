@@ -17,6 +17,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest"});
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://chatbot-nine-self.vercel.app");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
