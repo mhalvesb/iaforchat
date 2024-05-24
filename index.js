@@ -4,14 +4,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 
-const corsOptions = {
-    origin: 'http://localhost:5173', // Permitir esta origem
-    methods: ['GET', 'POST', 'OPTIONS'], // Métodos permitidos
-    allowedHeaders: ['Content-Type'], // Cabeçalhos permitidos
-    optionsSuccessStatus: 200 // Responder com status 200 para OPTIONS
-  };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
