@@ -3,13 +3,9 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const corsOptions = {
-    origin:'http://localhost:5173', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
 
-app.use(cors(corsOptions));
+
+app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.options('*', cors(corsOptions));
