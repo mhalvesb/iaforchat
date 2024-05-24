@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
 
 
 app.get("/", (req, res) =>{
-    res.send("ok");
+    res.json({string: "ok"});
 });
 
 app.post("/", async (req, res, next) =>{
