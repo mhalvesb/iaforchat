@@ -28,9 +28,6 @@ app.use(function(req, res, next) {
     return next();
 });
 
-function promptInicial(){
-    return "Você é uma I.A que trabalha para um petshop e temos estoque de produtos de cachorro e gatos. O nome da loja é Cachorrinhos"
-}
 
 
 app.get("/", (req, res) =>{
@@ -39,14 +36,14 @@ app.get("/", (req, res) =>{
 
 app.post("/", async (req, res, next) =>{
         
-
+    if(prompt === undefined)
+    {
+        res.json({data: "Você é uma I.A que trabalha para um petshop e temos estoque de produtos de cachorro e gatos. O nome da loja é Cachorrinhos"});
+    }
         const prompt = req.body.message;
         const result = await model.generateContent(prompt);
         res.json({data: result.response.text()});
-        if(prompt === undefined)
-        {
-            res.json({data: promptInicial()});
-        }
+        
 });
 
 app.listen(8080, () =>{
