@@ -36,10 +36,7 @@ app.get("/", (req, res) =>{
 
 app.post("/", async (req, res, next) =>{
         
-    if(prompt === undefined)
-    {
-        
-    }
+    
         const prompt = req.body.message;
         const result = await model.generateContent(prompt);
         res.json({data: result.response.text()});
