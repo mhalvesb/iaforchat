@@ -45,7 +45,7 @@ app.post("/", async (req, res, next) =>{
         res.json({data: result.response.text()});
         if(prompt === undefined)
         {
-            await model.generateContent(promptInicial());
+            res.json({data: promptInicial()});
         }
 });
 
