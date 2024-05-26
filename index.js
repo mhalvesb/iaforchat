@@ -38,7 +38,8 @@ app.post("/", async (req, res, next) =>{
         
     if(prompt === undefined)
     {
-        res.json({data: "Você é uma I.A que trabalha para um petshop e temos estoque de produtos de cachorro e gatos. O nome da loja é Cachorrinhos"});
+        const promptInitial = await model.generateContent("Você é uma I.A que trabalha para um petshop e temos estoque de produtos de cachorro e gatos. O nome da loja é Cachorrinhos")
+        res.json({data: promptInitial.response.text()});
     }
         const prompt = req.body.message;
         const result = await model.generateContent(prompt);
