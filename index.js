@@ -30,8 +30,10 @@ app.use(function(req, res, next) {
 
 
 
-app.get("/", (req, res) =>{
+app.get("/", async (req, res) =>{
     res.json({string: "ok"});
+    const result = await model.generateContent("Você é uma I.A que trabalha para um petshop e temos estoque de produtos de cachorro e gatos. O nome da loja é Cachorrinhos e o telefone é (21)98286-0764");
+    res.json({data: result.response.text()});
 });
 
 app.post("/", async (req, res, next) =>{
